@@ -5,6 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 @Controller
 public class ExampleController {
     private static final Logger logger = LoggerFactory.getLogger(ExampleController.class);
@@ -41,5 +47,37 @@ public class ExampleController {
     public @ResponseBody String getWithQuery(@RequestParam String name, @RequestParam(required = false) int id){
         logger.info(String.format("%s, %d", name, id));
         return String.format("%s, %d", name, id);
+    }
+
+    @RequestMapping(
+            value = "getHeaders",
+            method = RequestMethod.GET
+    )
+    public @ResponseBody String getHeaders(
+            @RequestHeader("accept-language") String acceptLanguage,
+            @RequestHeader(value = "custom-header", required = false, defaultValue = "none") String customHeader
+    ){
+        logger.info(String.format("accept-language: %s, custom-header: %s", acceptLanguage, customHeader));
+        return String.format("accept-language: %s, custom-header: %s", acceptLanguage, customHeader);
+    }
+
+    @RequestMapping(
+            value = "getHeadersFromServletRequest",
+            method = RequestMethod.GET
+    )
+    public @ResponseBody String getHeadersFromRequest(
+            HttpServletRequest servletRequest
+    ){
+        Map<String, String> requestHeaders = new HashMap<>();
+        Iterator<String> headerNameIterator = servletRequest.getHeaderNames().asIterator();
+        while (headerNameIterator.hasNext()){
+            String headerName = headerNameIterator.next();
+            logger.info(servletRequest.getHeaderNames().nextElement());
+            logger.info(servletRequest.getHeader(headerName));
+
+            requestHeaders.put(headerName, servletRequest.getHeader(headerName));
+        }
+
+        return requestHeaders.toString();
     }
 }
