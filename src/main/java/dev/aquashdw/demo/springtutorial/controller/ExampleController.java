@@ -72,7 +72,6 @@ public class ExampleController {
         Iterator<String> headerNameIterator = servletRequest.getHeaderNames().asIterator();
         while (headerNameIterator.hasNext()){
             String headerName = headerNameIterator.next();
-            logger.info(servletRequest.getHeaderNames().nextElement());
             logger.info(servletRequest.getHeader(headerName));
 
             requestHeaders.put(headerName, servletRequest.getHeader(headerName));

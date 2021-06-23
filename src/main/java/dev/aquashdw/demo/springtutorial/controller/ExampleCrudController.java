@@ -15,7 +15,7 @@ import java.util.Map;
 public class ExampleCrudController {
     private static final Logger logger = LoggerFactory.getLogger(ExampleCrudController.class);
 
-    private Map<Integer, ExampleCrudResource> resourceStore = new HashMap<>();
+    private final Map<Integer, ExampleCrudResource> resourceStore = new HashMap<>();
 
     @GetMapping(
             "readAll"
