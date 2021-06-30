@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.aquashdw.demo.springtutorial.mybatis.mappers.UserMapper">
+    <insert
+            id="createUser"
+            parameterType="dev.aquashdw.demo.springtutorial.board.dto.UserDto"
+    >
+        insert into com_user(user_id, user_key)
+        values(#{userId}, #{userKey})
+    </insert>
+    <select
+            id="selectUser"
+            resultType="dev.aquashdw.demo.springtutorial.board.dto.UserDto">
+        select * from com_user
+        where user_id = #{userId}
+    </select>
+    <select
+            id="selectUserAll"
+            resultType="dev.aquashdw.demo.springtutorial.board.dto.UserDto">
+        select * from com_user
+    </select>
+    <update
+            id="updateUser"
+            parameterType="dev.aquashdw.demo.springtutorial.board.dto.UserDto"
+    >
+        update com_user
+        set user_key = #{userKey}, update_date = CURRENT_TIMESTAMP
+        where user_id = #{userId}
+    </update>
+    <delete
+            id="deleteUser"
+            parameterType="dev.aquashdw.demo.springtutorial.board.dto.UserDto"
+    >
+        delete from com_user
+        where user_id = #{userId} and user_key = #{userKey}
+    </delete>
+</mapper>
