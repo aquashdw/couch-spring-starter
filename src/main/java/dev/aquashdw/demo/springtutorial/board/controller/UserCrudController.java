@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserCrudController {
     private static final Logger logger = LoggerFactory.getLogger(UserCrudController.class);
 
-    private UserDao userDao;
+    private final UserDao userDao;
 
     public UserCrudController(
             @Autowired UserDao userDao
