@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.aquashdw.demo.springtutorial.mybatis.mappers.BoardMapper">
+    <insert
+            id="createArticle"
+            parameterType="dev.aquashdw.demo.springtutorial.board.dto.SimpleBoardDto"
+    >
+        insert into simple_board(user_id, content)
+        values(${userId}, #{content})
+    </insert>
+
+    <select
+            id="selectArticle"
+            parameterType="dev.aquashdw.demo.springtutorial.board.dto.SimpleBoardDto"
+            resultType="dev.aquashdw.demo.springtutorial.board.dto.SimpleBoardDto"
+    >
+        select * from simple_board
+        where title = #{title}
+    </select>
+
+    <select
+            id="selectArticleAll"
+            resultType="dev.aquashdw.demo.springtutorial.board.dto.SimpleBoardDto"
+    >
+        select * from simple_board
+    </select>
+
+    <update
+            id="updateArticle"
+            parameterType="dev.aquashdw.demo.springtutorial.board.dto.SimpleBoardDto"
+    >
+        update simple_board
+        set title = #{title},
+            content = #{content},
+            update_date = CURRENT_TIMESTAMP
+    </update>
+
+    <delete
+            id="deleteArticle"
+            parameterType="dev.aquashdw.demo.springtutorial.board.dto.SimpleBoardDto"
+    >
+        delete from simple_board
+        where title = #{title}
+    </delete>
+</mapper>

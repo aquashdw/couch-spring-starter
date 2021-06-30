@@ -7,6 +7,6 @@ spring:
     password: password
 
 mybatis:
-  mapper-locations: "classpath:mybatis/mappers/user-mapper.xml"
+  mapper-locations: "classpath:mybatis/mappers/*.xml"
   configuration:
     map-underscore-to-camel-case: true
