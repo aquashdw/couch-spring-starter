@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class UserDao {
-    private SqlSessionFactory sessionFactory;
+    private final SqlSessionFactory sessionFactory;
 
     public UserDao(
             @Autowired SqlSessionFactory sessionFactory
