@@ -11,6 +11,7 @@
     </insert>
     <select
             id="selectUser"
+            parameterType="dev.aquashdw.demo.springtutorial.board.dto.UserDto"
             resultType="dev.aquashdw.demo.springtutorial.board.dto.UserDto">
         select * from com_user
         where user_id = #{userId}

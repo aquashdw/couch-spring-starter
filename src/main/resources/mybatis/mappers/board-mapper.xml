@@ -34,6 +34,7 @@
         set title = #{title},
             content = #{content},
             update_date = CURRENT_TIMESTAMP
+        where id = ${id}
     </update>
 
     <delete
