@@ -1,5 +1,6 @@
-package dev.aquashdw.demo.springtutorial.wav;
+package dev.aquashdw.demo.springtutorial.wav.boundaries.controller;
 
+import dev.aquashdw.demo.springtutorial.wav.core.usecase.ExtractPcmUseCase;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,5 +1,7 @@
-package dev.aquashdw.demo.springtutorial.wav;
+package dev.aquashdw.demo.springtutorial.wav.core.usecase;
 
+import dev.aquashdw.demo.springtutorial.wav.core.service.WavService;
+import dev.aquashdw.demo.springtutorial.wav.infra.impl.WavServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

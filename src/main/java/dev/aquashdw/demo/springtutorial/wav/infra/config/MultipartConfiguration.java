@@ -1,4 +1,4 @@
-package dev.aquashdw.demo.springtutorial.wav;
+package dev.aquashdw.demo.springtutorial.wav.infra.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
