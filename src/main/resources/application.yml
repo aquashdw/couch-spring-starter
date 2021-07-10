@@ -11,3 +11,9 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+string:
+  from:
+    props: string-from-props
+  as:
+    list: a,b,c
