@@ -7,3 +7,9 @@ spring:
   jpa:
     database: h2
     database-platform: org.hibernate.dialect.H2Dialect
+
+string:
+  from:
+    props: string-from-props
+  as:
+    list: a,b,c
